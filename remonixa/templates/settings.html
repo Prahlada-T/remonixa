@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Settings | Remonixa</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+
+<body class="dashboard">
+
+<!-- ================= MAIN LAYOUT (SAME AS SUBSCRIPTION) ================= -->
+<div class="main">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar">
+    <a href="/dashboard" class="menu">📊 Dashboard</a>
+    <a href="/scans" class="menu">🧪 Scans</a>
+    <a href="/vulnerabilities" class="menu">🐞 Vulnerabilities</a>
+
+    <a href="/subscription" class="menu premium">
+      💎 Subscription
+      <span class="pro-badge"></span>
+    </a>
+
+    <a href="/reports" class="menu">📄 Reports</a>
+    <a href="/settings" class="menu active">⚙️ Settings</a>
+  </aside>
+
+  <!-- ================= CONTENT ================= -->
+  <main class="main-content">
+
+  <!-- HEADER -->
+  <div class="settings-header">
+    <h1>⚙ Account Settings</h1>
+    <p>Manage your account, security and preferences</p>
+  </div>
+
+  <!-- SETTINGS GRID -->
+  <div class="settings-grid">
+
+    <!-- ================= PROFILE CARD ================= -->
+    <div class="settings-card">
+      <h3>👤 Profile</h3>
+
+      <ul class="settings-list">
+        <li>✓ Username</li>
+        <li>✓ Email address</li>
+        <li>✓ Subscription status</li>
+      </ul>
+
+      <button class="upgrade-btn" onclick="toggleProfileForm()">
+        Edit Profile
+      </button>
+
+      <!-- PROFILE FORM (HIDDEN) -->
+      <form method="POST" action="/update-profile" class="inline-form" id="profileForm">
+        <label>Username</label>
+        <input type="text" name="username" value="{{ user.username }}" required>
+
+        <label>Email</label>
+        <input type="email" name="email" value="{{ user.email }}" required>
+
+        <button type="submit" class="upgrade-btn">Save Changes</button>
+      </form>
+    </div>
+
+    <!-- ================= SECURITY CARD ================= -->
+    <div class="settings-card">
+      <h3>🔐 Security</h3>
+
+      <ul class="settings-list">
+        <li>✓ Change password</li>
+        <li>✓ Forgot password protection</li>
+        <li>✓ Login security</li>
+      </ul>
+
+      <button class="upgrade-btn" onclick="togglePasswordForm()">
+        Update Security
+      </button>
+
+      <!-- PASSWORD FORM (HIDDEN) -->
+      <form method="POST" action="/change-password" class="inline-form" id="passwordForm">
+        <label>Current Password</label>
+        <input type="password" name="current_password" required>
+
+        <label>New Password</label>
+        <input type="password" name="new_password" required>
+
+        <button type="submit" class="upgrade-btn">Update Password</button>
+      </form>
+    </div>
+
+   </div>
+  </main>
+
+<script>
+function toggleProfileForm() {
+  document.getElementById("profileForm").classList.toggle("show");
+}
+
+function togglePasswordForm() {
+  document.getElementById("passwordForm").classList.toggle("show");
+}
+</script>
+
+</div>
+
+</body>
+</html>

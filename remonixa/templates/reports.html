@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reports | Remonixa</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+
+<body class="dashboard">
+
+<!-- ================= MAIN LAYOUT (SAME AS SUBSCRIPTION) ================= -->
+<div class="main">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <a href="/dashboard" class="menu">📊 Dashboard</a>
+    <a href="/scans" class="menu">🧪 Scans</a>
+    <a href="/vulnerabilities" class="menu">🐞 Vulnerabilities</a>
+
+    <a href="/subscription" class="menu premium">
+      💎 Subscription
+      <span class="pro-badge"></span>
+    </a>
+
+    <a href="/reports" class="menu active">📄 Reports</a>
+    <a href="/settings" class="menu">⚙️ Settings</a>
+  </aside>
+
+  <!-- ===== CONTENT ===== -->
+  <main class="content">
+
+    <h1>📄 Security Reports</h1>
+    <p>Download professional vulnerability reports for your scans</p>
+
+    {% if subscription == "free" %}
+      <div class="plan-card highlight" style="margin-bottom:20px;">
+        🔒 Free plan shows last <b>7 days</b> of scan history only.<br>
+        Upgrade to access <b>90-day history</b> and <b>PDF reports</b>.
+      </div>
+    {% endif %}
+
+    <div class="table-box">
+      <table>
+        <thead>
+          <tr>
+            <th>Target</th>
+            <th>Vulnerabilities</th>
+            <th>Risk</th>
+            <th>Date</th>
+            <th>Report</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for scan in scans %}
+          <tr>
+            <td>{{ scan.target }}</td>
+            <td>{{ scan.total_vulns }}</td>
+            <td class="risk {{ scan.risk_level|lower }}">
+              {{ scan.risk_level }}
+            </td>
+            <td>{{ scan.created_at }}</td>
+            <td>
+              {% if subscription == "premium" %}
+                <a href="/download-report/{{ scan.id }}" class="upgrade-btn">
+                  Download PDF
+                </a>
+              {% else %}
+                <a href="/subscription" class="upgrade-btn">
+                  Upgrade
+                </a>
+              {% endif %}
+            </td>
+          </tr>
+          {% else %}
+          <tr>
+            <td colspan="5" style="text-align:center; color:#9aa4af;">
+              No scans available
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>

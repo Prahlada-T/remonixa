@@ -1,0 +1,856 @@
+/* ================= BASE ================= */
+body.dashboard {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0f14;
+  color: #ffffff;
+}
+
+/* ================= TOP BAR ================= */
+.top-bar {
+  height: 60px;
+  background: linear-gradient(180deg, #121a24, #0f1620);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: 600;
+  color: #00ffcc;
+}
+
+.top-right {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  color: #9aa4af;
+}
+
+/* ================= LAYOUT ================= */
+.main {
+  display: flex;
+  height: calc(100vh - 60px);
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+  width: 220px;
+  background: linear-gradient(180deg, #121a24, #0f1620);
+  padding-top: 20px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.menu {
+  display: block;
+  padding: 14px 24px;
+  color: #b0b7c3;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.menu:hover {
+  background: rgba(0,255,204,0.08);
+  color: #00ffcc;
+}
+
+.menu.active {
+  background: linear-gradient(90deg, rgba(0,255,204,0.18), transparent);
+  border-left: 3px solid #00ffcc;
+  color: #00ffcc;
+}
+
+/* ================= CONTENT ================= */
+.content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  background: radial-gradient(circle at top, #0f1620, #0b0f14);
+}
+
+/* ================= METRICS ================= */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.card {
+  position: relative;
+  background: linear-gradient(180deg, #121a24, #0f1620);
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+  pointer-events: none;
+}
+
+.card h4 {
+  color: #9aa4af;
+  font-size: 13px;
+  margin: 0 0 8px;
+  letter-spacing: 0.3px;
+}
+
+.card p {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ================= RISK ================= */
+.risk.high {
+  color: #ff4d4d;
+  text-shadow: 0 0 8px rgba(255,77,77,0.5);
+}
+
+.risk.medium {
+  color: #ffaa00;
+  text-shadow: 0 0 8px rgba(255,170,0,0.5);
+}
+
+/* ================= TABLE ================= */
+.table-box {
+  margin-top: 40px;
+  background: linear-gradient(180deg, #121a24, #0f1620);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+.table-box h2 {
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  padding: 12px;
+  text-align: left;
+  font-size: 13px;
+  color: #9aa4af;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+td {
+  padding: 12px;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+tbody tr:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+/* ================= STATUS ================= */
+.done {
+  color: #00ff9d;
+  font-weight: 600;
+}
+
+
+/* ================= SITE HEALTH CHART FIX ================= */
+
+#healthChart {
+  width: 260px !important;
+  height: 260px !important;
+}
+
+.table-box canvas {
+  display: block;
+  margin: 0 auto;
+}
+
+/* ================= LIVE USERS BADGE ================= */
+
+.live-users-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(0, 255, 157, 0.08);
+  border: 1px solid rgba(0, 255, 157, 0.3);
+  border-radius: 20px;
+  font-size: 13px;
+  color: #00ff9d;
+}
+
+.live-users-badge strong {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+/* Pulse animation */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #00ff9d;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 157, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(0, 255, 157, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 157, 0);
+  }
+}
+
+/* ===== SUBSCRIPTION PAGE – ENTERPRISE STYLE ===== */
+
+.sub-header h1 {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.sub-header p {
+  color: #9ca3af;
+  font-size: 25px;
+}
+
+/* GRID */
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* CARD */
+.plan-card {
+  background: linear-gradient(180deg, #0b1220, #05080f);
+  border: 1px solid #1f2937;
+  border-radius: 14px;
+  padding: 28px;
+  transition: transform 0.3s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-4px);
+}
+
+/* TITLES */
+.plan-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.plan-title.tester {
+  color: #22d3ee;
+}
+
+.plan-title.business {
+  color: #facc15;
+}
+
+/* PRICE */
+.plan-price {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.plan-price span {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.plan-price.gold {
+  color: #facc15;
+}
+
+/* FEATURES */
+.plan-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 22px;
+}
+
+.plan-list li {
+  margin-bottom: 12px;
+  padding-left: 22px;
+  position: relative;
+}
+
+.plan-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #22c55e;
+}
+
+/* BUTTONS */
+.btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  border: none;
+}
+
+.btn.disabled {
+  background: #0f766e;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.btn.coming {
+  background: #1f2937;
+  color: #facc15;
+  border: 1px solid #facc15;
+  cursor: not-allowed;
+}
+
+/* BUSINESS EMPHASIS */
+.business-plan {
+  border: 1px solid #facc15;
+  box-shadow: 0 0 25px rgba(250, 204, 21, 0.08);
+}
+
+/* NOTE */
+.enterprise-note {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #9ca3af;
+  text-align: center;
+}
+
+
+/* ===== ACTIVE TESTER UPGRADE BUTTON ===== */
+.tester-active {
+  display: block;
+  text-align: center;
+  background: linear-gradient(90deg, #14b8a6, #22d3ee);
+  color: #001014;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.tester-active:hover {
+  background: linear-gradient(90deg, #22d3ee, #14b8a6);
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.4);
+}
+
+/* ===== BRAND: REMONIXA TECHNOLOGY ===== */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+
+/* Remonixa text */
+.brand-main {
+  font-size: 22px;
+  background: linear-gradient(90deg, #22d3ee, #14b8a6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.5px;
+}
+
+/* Technology text */
+.brand-tech {
+  font-size: 14px;
+  color: #e5e7eb;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  /* subtle tech glow */
+  text-shadow:
+    0 0 6px rgba(34, 211, 238, 0.6),
+    0 0 14px rgba(20, 184, 166, 0.4);
+}
+
+
+/* ===== GLOBAL HEADER ===== */
+.global-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 16px 40px;
+  background: linear-gradient(180deg, #020617, #020617cc);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ===== BRAND ===== */
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.brand-main {
+  font-size: 18px;
+  font-weight: 700;
+  color: #22d3ee;
+  letter-spacing: 0.5px;
+}
+
+.brand-sub {
+  font-size: 11px;
+  color: #94a3b8;
+  letter-spacing: 1.5px;
+}
+
+/* ===== NAV LINKS ===== */
+.nav-links {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+  color: #38bdf8;
+}
+
+/* Disabled (Coming Soon) */
+.nav-links .disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Logout */
+.logout-link {
+  color: #f87171;
+}
+
+/* Divider */
+.header-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(56,189,248,0.4),
+    transparent
+  );
+}
+
+/* ===============================
+   DASHBOARD LAYOUT FIX
+================================ */
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0b1220, #020617);
+}
+
+/* Sidebar fixed width */
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+}
+
+/* Main content aligned next to sidebar */
+.main-content {
+  flex: 1;
+  padding: 40px;
+  overflow-x: hidden;
+}
+
+/* ===============================
+   REPORTS & SETTINGS TEXT FIX
+================================ */
+
+/* Headings */
+.main-content h1,
+.main-content h2,
+.main-content h3 {
+  color: #e5e7eb;
+}
+
+/* Paragraphs */
+.main-content p {
+  color: #9aa4af;
+}
+
+/* Lists */
+.main-content ul li {
+  color: #cbd5e1;
+  margin-bottom: 6px;
+}
+
+/* Report cards */
+.plan-card {
+  background: linear-gradient(180deg, #020617, #020617cc);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+}
+
+/* Highlight (Premium) */
+.plan-card.highlight {
+  border-color: rgba(56,189,248,0.5);
+}
+
+/* Buttons */
+.upgrade-btn,
+.disabled-btn {
+  margin-top: 16px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.upgrade-btn {
+  background: linear-gradient(90deg, #22d3ee, #14b8a6);
+  color: #020617;
+}
+
+.disabled-btn {
+  background: #1e293b;
+  color: #94a3b8;
+  cursor: default;
+}
+
+
+/* ===== REPORTS INFO BANNER ===== */
+.plan-card.highlight {
+  background: linear-gradient(180deg, #020617, #020617cc);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #e5e7eb;
+  font-size: 14px;
+}
+
+.plan-card.highlight b {
+  color: #38bdf8;
+}
+
+.plan-card.highlight i,
+.plan-card.highlight svg {
+  color: #facc15;
+}
+
+/* ===== REPORTS TABLE BODY ===== */
+.table-box tbody td {
+  color: #e5e7eb;
+  font-size: 14px;
+}
+
+.table-box tbody tr:hover {
+  background: rgba(56, 189, 248, 0.05);
+}
+
+/* ===== RISK COLORS ===== */
+.risk.high {
+  color: #ff4d4d;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(255, 77, 77, 0.6);
+}
+
+.risk.medium {
+  color: #ffaa00;
+  text-shadow: 0 0 8px rgba(255, 170, 0, 0.6);
+}
+
+.risk.low {
+  color: #00ff9d;
+  text-shadow: 0 0 8px rgba(0, 255, 157, 0.6);
+}
+
+/* ===== REPORTS BUTTONS ===== */
+.upgrade-btn {
+  padding: 8px 16px;
+  background: linear-gradient(90deg, #22d3ee, #14b8a6);
+  border-radius: 6px;
+  color: #020617;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+}
+
+.upgrade-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 14px rgba(34, 211, 238, 0.6);
+}
+
+.disabled-btn {
+  padding: 8px 16px;
+  background: #1e293b;
+  color: #94a3b8;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+
+/* ===============================
+   SETTINGS PAGE – PROFESSIONAL UI
+================================ */
+
+/* GRID */
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+  max-width: 1000px;
+}
+
+/* CARD */
+.settings-card {
+  background: linear-gradient(180deg, #0b1220, #020617);
+  border-radius: 14px;
+  padding: 26px;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.settings-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(34,211,238,0.15);
+}
+
+/* CARD TITLE */
+.settings-card h3 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #e5e7eb;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding-bottom: 10px;
+}
+
+/* LIST */
+.settings-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+}
+
+.settings-list li {
+  padding: 6px 0;
+  color: #9aa4af;
+  font-size: 14px;
+}
+
+/* BUTTON (reuse upgrade style) */
+.settings-card .upgrade-btn {
+  width: fit-content;
+}
+
+/* ================= SETTINGS PAGE FIX ================= */
+
+/* Center main content */
+.main-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 30px;
+}
+
+/* Settings page header box */
+.settings-header {
+  width: 100%;
+  max-width: 950px;
+  background: linear-gradient(180deg, #020617, #020617cc);
+  border: 1px solid rgba(56,189,248,0.25);
+  border-radius: 14px;
+  padding: 20px 24px;
+
+  /* ✅ LEFT ALIGN */
+  margin: 0 0 36px 0;
+  text-align: center;
+
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+}
+
+
+.settings-header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.settings-header p {
+  margin-top: 8px;
+  color: #9aa4af;
+  font-size: 14px;
+}
+
+/* Settings grid */
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+}
+
+/* Settings cards */
+.settings-card {
+  background: radial-gradient(circle at top, #0b1220, #020617);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 26px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.settings-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 0 1px rgba(56,189,248,0.3);
+}
+
+.settings-card h3 {
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+/* Settings list */
+.settings-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.settings-list li {
+  margin-bottom: 8px;
+  color: #cbd5f5;
+  font-size: 14px;
+}
+
+/* Buttons ACTIVE */
+.upgrade-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  background: linear-gradient(90deg, #22d3ee, #14b8a6);
+  color: #020617;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.upgrade-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(34,211,238,0.35);
+}
+
+.upgrade-btn:active {
+  transform: scale(0.97);
+}
+
+/* ================= SETTINGS FINAL POLISH ================= */
+
+/* Slight background lift for settings page only */
+body.dashboard-layout {
+  background: radial-gradient(circle at top, #020617, #00040d);
+}
+
+/* Improve header positioning */
+.settings-header {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+}
+
+/* Add subtle connector feel */
+.settings-header::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -18px;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #22d3ee, #14b8a6);
+  opacity: 0.6;
+}
+
+/* Align cards closer to center */
+.settings-grid {
+  margin-top: 10px;
+}
+
+/* Improve card depth */
+.settings-card {
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.04),
+    0 18px 45px rgba(0,0,0,0.55);
+}
+
+/* Card titles stronger */
+.settings-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+/* Buttons feel more premium */
+.upgrade-btn {
+  margin-top: 8px;
+  letter-spacing: 0.3px;
+}
+
+/* Button glow on hover */
+.upgrade-btn:hover {
+  box-shadow:
+    0 10px 30px rgba(34,211,238,0.45),
+    inset 0 0 0 1px rgba(255,255,255,0.25);
+}
+
+/* Inline forms inside cards */
+.inline-form {
+  margin-top: 18px;
+  display: none;
+}
+
+.inline-form.show {
+  display: block;
+}
+
+.inline-form label {
+  display: block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #9aa4af;
+}
+
+.inline-form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #020617;
+  color: white;
+}

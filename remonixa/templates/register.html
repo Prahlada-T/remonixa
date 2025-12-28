@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Account | Remonixa</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="auth">
+
+<form method="POST" class="auth-box" novalidate>
+
+  <h2>Create Account</h2>
+  <p class="auth-subtitle">
+    Start securing your applications with Remonixa
+  </p>
+
+  <!-- 🔔 FLASH MESSAGES -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <!-- USERNAME -->
+  <input
+    type="text"
+    name="username"
+    placeholder="Username"
+    required
+    minlength="4"
+    maxlength="16"
+    autocomplete="username"
+  >
+
+  <!-- EMAIL -->
+  <input
+    type="email"
+    name="email"
+    placeholder="Email address"
+    required
+    autocomplete="email"
+  >
+
+  <!-- PASSWORD -->
+  <div class="password-field">
+    <input
+      type="password"
+      name="password"
+      id="reg-password"
+      placeholder="Password"
+      required
+      autocomplete="new-password"
+    >
+    <span class="eye" onclick="togglePassword('reg-password')">👁</span>
+  </div>
+
+  <!-- CONFIRM PASSWORD -->
+  <div class="password-field">
+    <input
+      type="password"
+      name="confirm"
+      id="reg-confirm"
+      placeholder="Confirm password"
+      required
+      autocomplete="new-password"
+    >
+    <span class="eye" onclick="togglePassword('reg-confirm')">👁</span>
+  </div>
+
+  <!-- SUBMIT -->
+  <button type="submit">Create Account</button>
+
+  <!-- FOOTER -->
+  <div class="auth-footer">
+    <p class="switch-text">
+      Already have an account?
+      <a href="{{ url_for('login') }}" class="switch-link">Login</a>
+    </p>
+
+    <p class="back-home">
+      <a href="{{ url_for('index') }}" class="back-link">
+        ← Go back to Home
+      </a>
+    </p>
+  </div>
+
+</form>
+
+<!-- PASSWORD TOGGLE SCRIPT -->
+<script>
+  function togglePassword(id) {
+    const field = document.getElementById(id);
+    field.type = field.type === "password" ? "text" : "password";
+  }
+</script>
+
+</body>
+</html>

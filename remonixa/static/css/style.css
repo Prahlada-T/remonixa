@@ -1,0 +1,1134 @@
+/* ==================================================
+   GLOBAL
+================================================== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+}
+
+/* HOME / SAAS */
+body.saas {
+  background: #0b0f14;
+}
+
+/* ==================================================
+   PASSWORD FIELD (EYE ICON)
+================================================== */
+.password-field {
+  position: relative;
+}
+
+.password-field .eye {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #00ffcc;
+  font-size: 14px;
+}
+
+/* ==================================================
+   HEADER
+================================================== */
+.global-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+}
+
+.brand {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* FORCE TECHNOLOGY TEXT STYLE (UI HEADER) */
+.brand span:last-child {
+  display: block;
+  font-size: 11px;        /* 🔽 smaller */
+  color: #cbd5e1;
+  margin-top: 2px;
+  letter-spacing: 1.6px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+
+.nav-links a {
+  color: #aaa;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+.header-link {
+  color: #00ffcc;
+  font-weight: bold;
+}
+
+/* ===============================
+   HEADER NEON DIVIDER
+================================ */
+.header-divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #00ffcc,
+    #00eaff,
+    #00ffcc,
+    transparent
+  );
+  box-shadow:
+    0 0 12px rgba(0, 255, 204, 0.6),
+    0 0 24px rgba(0, 234, 255, 0.4);
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+.hero {
+  text-align: center;
+  padding: 40px 20px 30px; /* 🔥 balanced top & bottom */
+  
+}
+
+.hero h1 {
+  font-size: 44px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  color: #bbb;
+  font-size: 18px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.hero-cta {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+/* PRIMARY BUTTON (GLOBAL) */
+.primary-btn {
+  padding: 14px 34px;
+  background: #00ffcc;
+  color: #000;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+
+  min-width: 220px;
+  max-width: 280px;
+  text-align: center;
+
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 255, 204, 0.35);
+}
+
+/* ==================================================
+   FEATURES
+================================================== */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 80px auto;   /* 🔥 was 140px */
+  max-width: 1100px;
+}
+
+
+.feature-box {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 204, 0.08),
+    rgba(0, 255, 204, 0.02)
+  );
+  border: 1px solid rgba(0, 255, 204, 0.25);
+  border-radius: 12px;
+  padding: 35px;
+  width: 300px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.feature-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px rgba(0, 255, 204, 0.25);
+}
+
+.feature-box h3 {
+  color: #00ffcc;
+}
+
+/* ==================================================
+   AUTH PAGES
+================================================== */
+body.auth {
+  background: radial-gradient(circle at top, #0f1a24, #0b0f14);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.auth-box {
+  background: #111821;
+  padding: 45px;
+  width: 380px;
+  border-radius: 14px;
+}
+
+.auth-box h2 {
+  color: #e6f1ff;
+}
+
+.auth-subtitle {
+  color: #9aa4b2;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.auth-box input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 16px;
+  background: #0b0f14;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #ffffff;
+}
+
+.auth-box button {
+  width: 100%;
+  padding: 14px;
+  background: #00ffcc;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* AUTH FOOTER */
+.auth-footer {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.switch-text {
+  color: #9aa4b2;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.switch-link {
+  color: #00ffcc;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 4px;
+}
+
+.switch-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.back-home {
+  margin-top: 12px;
+}
+
+.back-link {
+  color: #7fbfcf;
+  font-size: 12px;
+  text-decoration: none;
+  opacity: 0.85;
+}
+
+.back-link:hover {
+  opacity: 1;
+  color: #00ffcc;
+}
+
+/* ==================================================
+   FLASH MESSAGES
+================================================== */
+.flash {
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.flash.error {
+  background: rgba(255, 0, 80, 0.12);
+  color: #ff4d6d;
+  border: 1px solid rgba(255, 0, 80, 0.4);
+}
+
+.flash.success {
+  background: rgba(0, 255, 170, 0.12);
+  color: #00ffaa;
+  border: 1px solid rgba(0, 255, 170, 0.45);
+}
+
+/* ==================================================
+   DASHBOARD
+================================================== */
+body.dashboard {
+  background: radial-gradient(circle at top, #3b1c87, #1a063b);
+  color: white;
+  font-family: Consolas, monospace;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.dash-header {
+  position: relative;
+  padding: 20px 60px;
+}
+
+/* BRAND – FINAL PROFESSIONAL STYLE */
+.brand,
+.dash-brand {
+  display: flex;
+  align-items: baseline;   /* 🔥 keeps text on same line */
+  gap: 6px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.4px;
+}
+
+/* TECHNOLOGY TEXT */
+.brand span,
+.dash-brand span {
+  font-size: 16px;
+  font-weight: 500;
+  color: #00ffcc;
+  letter-spacing: 0.6px;
+}
+b
+
+
+/* PROFILE */
+.profile-box {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  text-align: center;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #00ffcc;
+}
+
+.profile-name {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+.logout-btn {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: #ff4d6d;
+  border: 1px solid #ff4d6d;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  color: #fff;
+  background: #ff4d6d;
+  box-shadow: 0 0 10px #ff4d6d, 0 0 20px rgba(255, 77, 109, 0.8);
+}
+
+/* TITLES */
+.dash-title {
+  margin-top: 80px;
+  font-size: 36px;
+}
+
+.dash-subtitle {
+  color: #ccc;
+  margin-bottom: 50px;
+}
+
+/* ==================================================
+   PLANS (FINAL + HOVER FIX)
+================================================== */
+.plans {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.plan-card {
+  background: black;
+  padding: 24px;
+  width: 300px;
+  min-height: 280px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.35);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border 0.35s ease;
+}
+
+.plan-card h3 {
+  color: #00ffcc;
+  text-align: center;        /* 🔥 CENTER TITLE */
+  margin-bottom: 20px;       /* spacing below title */
+  font-size: 24px;
+}
+
+
+.plan-card ul {
+  text-align: left;
+  margin: 20px 0;
+}
+
+.plan-card button {
+  width: 100%;
+}
+
+/* PLAN CARD HOVER */
+.plan-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  border: 1px solid #00ffcc;
+  box-shadow:
+    0 0 30px rgba(0, 255, 204, 0.6),
+    0 0 70px rgba(0, 255, 204, 0.35);
+}
+
+/* BUTTON GLOW */
+.plan-card:hover button {
+  box-shadow:
+    0 0 18px rgba(0, 255, 204, 0.8),
+    0 0 35px rgba(0, 255, 204, 0.5);
+}
+
+/* PREMIUM */
+.plan-card.premium:hover {
+  box-shadow:
+    0 0 40px rgba(255, 0, 255, 0.6),
+    0 0 80px rgba(0, 234, 255, 0.6);
+}
+
+.premium-btn {
+  display: flex;                 /* 🔥 centers text perfectly */
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px;
+  width: 90%;
+
+  background: linear-gradient(45deg, #ff00ff, #00eaff);
+  color: #000;
+
+  font-weight: 600;
+  text-decoration: none;         /* 🔥 removes underline */
+  border-radius: 8px;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.premium-btn:hover {
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.6),
+              0 0 35px rgba(0, 234, 255, 0.6);
+}
+
+
+/* WHY PREMIUM */
+.section-title {
+  margin: 60px 0 20px;
+}
+
+.why-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.why-box {
+  background: black;
+  padding: 20px;
+  width: 200px;
+  border-radius: 10px;
+  border: 1px solid #ff00ff;
+}
+
+/* ==================================================
+   WHY PREMIUM – HOVER GLOW FIX
+================================================== */
+
+.why-box {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border 0.35s ease;
+}
+
+/* HOVER EFFECT */
+.why-box:hover {
+  transform: translateY(-10px) scale(1.03);
+  border: 1px solid #ff00ff;
+
+  box-shadow:
+    0 0 25px rgba(255, 0, 255, 0.6),
+    0 0 50px rgba(0, 234, 255, 0.35);
+}
+
+/* ===============================
+   BRAND – NEON EXACT STYLE
+================================ */
+
+.neon-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  cursor: default;
+}
+
+/* Remonixa */
+
+
+.brand-main {
+  font-size: 26px;
+  color: #00eaff;
+
+  text-shadow:
+    0 0 6px rgba(0, 234, 255, 0.9),
+}
+
+/* Technology */
+.brand-sub {
+  font-size: 26px;
+  color: #ffffff;
+
+  text-shadow:
+    0 0 4px rgba(255, 255, 255, 0.6),
+    0 0 10px rgba(255, 255, 255, 0.35);
+}
+
+/* ==================================================
+   SAFE FIXES (DO NOT BREAK EXISTING STRUCTURE)
+   Paste at END of file
+================================================== */
+
+/* 🔒 Prevent layout breaking on zoom */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* 🔒 Stop hover shaking caused by scale + layout */
+.feature-box,
+.plan-card,
+.why-box {
+  will-change: transform;
+}
+
+/* 🔒 Equal box heights (dashboard & home) */
+.features,
+.plans,
+.why-grid {
+  align-items: stretch;
+}
+
+.feature-box,
+.plan-card,
+.why-box {
+  height: 100%;
+}
+
+/* 🔒 Brand alignment consistency (home + dashboard) */
+.brand,
+.dash-brand {
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+/* 🔒 Prevent text jumping on hover */
+.feature-box:hover,
+.plan-card:hover,
+.why-box:hover {
+  transform: translateY(-8px);
+}
+
+/* ==================================================
+   MOBILE & ZOOM FIX (RESPONSIVE)
+================================================== */
+
+@media (max-width: 1024px) {
+
+  .global-header,
+  .dash-header {
+    padding: 16px 24px;
+  }
+
+  .features,
+  .plans,
+  .why-grid {
+     gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Header stack */
+  .global-header,
+  .dash-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  /* Hero text scale */
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  /* Brand resize */
+  .brand,
+  .dash-brand {
+    font-size: 22px;
+  }
+
+  .brand span,
+  .dash-brand span {
+    font-size: 14px;
+  }
+
+  /* Cards stack properly */
+  .features,
+  .plans,
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==================================================
+   SMALL DEVICES
+================================================== */
+@media (max-width: 420px) {
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .primary-btn,
+  .premium-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+/* ===============================
+   SECTION HEADERS (GREEN LINE)
+================================ */
+
+.section-header {
+  text-align: center;
+  margin: 80px auto 30px;
+  max-width: 800px;
+}
+
+.green-line {
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #00ffcc;
+  margin: 0 auto 16px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.8);
+}
+
+.section-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.section-header p {
+  color: #b5b5b5;
+  font-size: 16px;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+
+.footer {
+  margin-top: 30px;
+  padding: 30px;
+  text-align: center;
+  color: #888;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ===============================
+   CONTACT SECTION (FINAL FIX)
+================================ */
+
+.contact-section {
+  padding: 5px 20px;          /* 🔥 reduced top & bottom space */
+  text-align: center;
+}
+
+/* CONTACT BOX */
+.contact-box {
+  max-width: 600px;            /* 🔥 bigger box */
+  margin: 0 auto;
+  padding: 40px;
+  background: linear-gradient(
+    180deg,
+    rgba(0,255,204,0.08),
+    rgba(0,255,204,0.02)
+  );
+  border: 1px solid rgba(0,255,204,0.25);
+  border-radius: 16px;
+  box-shadow: 0 0 40px rgba(0,255,204,0.15);
+}
+
+/* INPUT + TEXTAREA */
+.contact-box input,
+.contact-box textarea {
+  width: 100%;                 /* 🔥 prevents overflow */
+  box-sizing: border-box;      /* 🔥 IMPORTANT FIX */
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  background: #0b0f14;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+  resize: none;                /* 🔥 stops ugly resize */
+}
+
+/* TEXTAREA HEIGHT */
+.contact-box textarea {
+  min-height: 140px;
+}
+
+/* PLACEHOLDER */
+.contact-box input::placeholder,
+.contact-box textarea::placeholder {
+  color: #888;
+}
+
+/* FOCUS EFFECT */
+.contact-box input:focus,
+.contact-box textarea:focus {
+  border-color: #00ffcc;
+  box-shadow: 0 0 10px rgba(0,255,204,0.4);
+}
+
+/* BUTTON */
+.contact-box button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* ===============================
+   OUR VISION
+================================ */
+
+.vision-section {
+  margin-bottom: 20px;
+}
+
+/* ================= OUR VISION ================= */
+.vision-section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  color: #bbb;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* FLOW LAYOUT */
+.vision-flow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* CIRCLES */
+.vision-circle {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  padding: 28px;
+  background: radial-gradient(circle at top,
+    rgba(0,255,204,0.15),
+    rgba(0,0,0,0.9)
+  );
+  border: 2px solid rgba(0,255,204,0.5);
+  box-shadow: 0 0 35px rgba(0,255,204,0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vision-circle:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 60px rgba(0,255,204,0.45);
+}
+
+/* ICON */
+.vision-circle .icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* TITLE */
+.vision-circle h3 {
+  color: #00ffcc;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+/* TEXT */
+.vision-circle p {
+  font-size: 14px;
+  color: #ddd;
+  line-height: 1.5;
+}
+
+/* MOBILE FIX */
+@media (max-width: 900px) {
+  .vision-flow {
+    gap: 30px;
+  }
+}
+
+
+/* ===== PREMIUM SIDEBAR ITEM ===== */
+.menu.premium {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: #facc15;
+  font-weight: 600;
+
+  border-left: 4px solid #facc15;
+  background: linear-gradient(90deg, rgba(250,204,21,0.15), transparent);
+}
+
+.menu.premium:hover {
+  background: linear-gradient(90deg, rgba(250,204,21,0.25), transparent);
+}
+
+/* PRO badge */
+.pro-badge {
+  background: #facc15;
+  color: #000;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* ================= SUBSCRIPTION – ENTERPRISE STYLE ================= */
+
+.plans-wrapper {
+  max-width: 1100px;
+  margin: 60px auto;
+  color: #e5e7eb;
+}
+
+.plans-title {
+  font-size: 34px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.plans-subtitle {
+  color: #9ca3af;
+  margin-bottom: 40px;
+}
+
+/* GRID */
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+/* CARD BASE */
+.plan-card {
+  background: linear-gradient(180deg, #0b1220, #05080f);
+  border-radius: 14px;
+  padding: 32px;
+  border: 1px solid #1f2937;
+  transition: transform 0.3s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-4px);
+}
+
+/* TITLES */
+.plan-title {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.plan-title.tester {
+  color: #22d3ee;
+}
+
+.plan-title.business {
+  color: #facc15;
+}
+
+/* PRICE */
+.plan-price {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.plan-price span {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.plan-price.gold {
+  color: #facc15;
+}
+
+/* FEATURES */
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 25px;
+}
+
+.plan-features li {
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 22px;
+}
+
+.plan-features li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #22c55e;
+}
+
+/* TESTER BUTTON */
+.upgrade-btn {
+  width: 100%;
+  padding: 12px;
+  background: #0f766e;
+  color: #9ca3af;
+  border-radius: 10px;
+  border: none;
+  cursor: not-allowed;
+  font-weight: 600;
+}
+
+/* BUSINESS BUTTON */
+.coming-btn {
+  width: 100%;
+  padding: 12px;
+  background: #1f2937;
+  color: #facc15;
+  border: 1px solid #facc15;
+  border-radius: 10px;
+  cursor: not-allowed;
+  font-weight: 600;
+}
+
+/* BUSINESS CARD EMPHASIS */
+.business-plan {
+  border: 1px solid #facc15;
+  box-shadow: 0 0 25px rgba(250, 204, 21, 0.08);
+}
+
+/* ENTERPRISE NOTE */
+.enterprise-note {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #9ca3af;
+  text-align: center;
+}
+
+/* Prevent landing styles from affecting dashboard */
+.public-header {
+  position: relative;
+}
+
+.dashboard-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Landing page spacing fix */
+body:not(.dashboard-page) .hero {
+  margin-top: 0;
+}
+
+/* Dashboard pages spacing */
+.dashboard-page {
+  padding-top: 0;
+}
+
+.forgot-wrap {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 14px;
+}
+
+.forgot-link {
+  font-size: 13px;
+  color: #00ffd5;
+  text-decoration: none;
+  opacity: 0.9;
+  transition: all 0.2s ease;
+}
+
+.forgot-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+
+.auth {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #0f2027, #050b10);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.auth-box {
+  width: 380px;
+  padding: 32px;
+  background: rgba(10, 20, 25, 0.9);
+  border-radius: 14px;
+  box-shadow: 0 0 40px rgba(0, 255, 213, 0.08);
+}
+
+.auth-box h2 {
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.auth-subtitle {
+  color: #9fb3c8;
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+.auth-box input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 18px;
+  background: #0b151a;
+  border: 1px solid #1f2f35;
+  border-radius: 8px;
+  color: #ffffff;
+}
+
+.auth-box input:focus {
+  outline: none;
+  border-color: #00ffd5;
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 12px;
+  background: #00ffd5;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-btn:hover {
+  background: #00e6c3;
+}
+
+.auth-links {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.auth-links a {
+  display: block;
+  color: #00ffd5;
+  font-size: 13px;
+  text-decoration: none;
+  margin-top: 6px;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
+}

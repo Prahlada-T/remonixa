@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Choose Account | Remonixa</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+
+<body class="dashboard">
+
+<header class="top-bar">
+  <div class="brand">Remonixa</div>
+</header>
+
+<div class="main" style="justify-content:center; align-items:center;">
+
+  <main class="content" style="max-width:900px;">
+
+    <div class="sub-header">
+      <h1>Create your account</h1>
+      <p>Select how you want to use Remonixa</p>
+    </div>
+
+    <div class="metrics" style="grid-template-columns: repeat(2, 1fr);">
+
+      <!-- TESTER -->
+      <div class="card">
+        <h3 style="color:#00ffcc;">🧪 Security Tester</h3>
+        <p style="font-size:14px; color:#9aa4af;">
+          For individuals, bug bounty hunters & learners
+        </p>
+
+        <ul>
+          <li>✔ Manual scans</li>
+          <li>✔ XSS testing</li>
+          <li>✔ Vulnerability insights</li>
+        </ul>
+
+        <a href="/register?type=tester">
+          <button class="start-btn">Continue as Tester</button>
+        </a>
+      </div>
+
+      <!-- BUSINESS -->
+      <div class="card business">
+        <h3 style="color:#ffaa00;">🏢 Business / Company</h3>
+        <p style="font-size:14px; color:#9aa4af;">
+          For startups, SaaS & organizations
+        </p>
+
+        <ul>
+          <li>✔ Multiple targets</li>
+          <li>✔ Reports & dashboards</li>
+          <li>✔ Team collaboration</li>
+        </ul>
+
+        <a href="/register?type=business">
+          <button class="start-btn">Continue as Business</button>
+        </a>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>

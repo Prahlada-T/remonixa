@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Remonixa</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body class="auth">
+
+<form method="POST" class="auth-box">
+
+  <h2>Login</h2>
+  <p class="auth-subtitle">Welcome back to Remonixa</p>
+
+  <!-- 🔔 FLASH MESSAGES -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <!-- EMAIL -->
+  <input
+    type="email"
+    name="email"
+    placeholder="Email address"
+    required
+  >
+
+  <!-- PASSWORD -->
+  <div class="password-field">
+    <input
+      type="password"
+      name="password"
+      id="login-pass"
+      placeholder="Password"
+      required
+    >
+    <span class="eye" onclick="togglePassword('login-pass')">👁</span>
+  </div>
+
+  <!-- SUBMIT -->
+  <button type="submit">Login</button>
+
+  <!-- FOOTER -->
+  <div class="auth-footer">
+    <p class="switch-text">
+      Don’t have an account?
+      <a href="/register" class="switch-link">Create one</a>
+    </p>
+    <div class="forgot-wrap">
+      <a href="/forgot-password" class="forgot-link">Forgot password?</a>
+    </div>
+
+    <p class="back-home">
+      <a href="/" class="back-link">← Go back to Home</a>
+    </p>
+  </div>
+
+</form>
+
+<!-- PASSWORD TOGGLE SCRIPT -->
+<script>
+  function togglePassword(id) {
+    const field = document.getElementById(id);
+    field.type = field.type === "password" ? "text" : "password";
+  }
+</script>
+
+</body>
+</html>

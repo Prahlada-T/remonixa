@@ -1,0 +1,39 @@
+<body class="saas">
+
+  <!-- ================= GLOBAL HEADER ================= -->
+<header class="global-header">
+
+  <!-- BRAND -->
+  <div class="brand">
+    <span class="brand-main">Remonixa</span>
+    <span class="brand-sub">TECHNOLOGY</span>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav-links">
+
+    {% if session.get("user_id") %}
+      <a href="/dashboard">🏠 Dashboard</a>
+      <a href="/scans">🧪 Scans</a>
+      <a href="/vulnerabilities">🐞 Vulnerabilities</a>
+      <a href="/subscription">💎 Subscription</a>
+
+      <!-- FUTURE LINKS (DISABLED FOR NOW) -->
+      <a class="disabled">📊 Reports</a>
+      <a class="disabled">⚙ Settings</a>
+
+      <a href="/logout" class="logout-link">Logout</a>
+    {% else %}
+      <a href="/">Home</a>
+      <a href="/login">Login</a>
+      <a href="/register" class="primary-link">Get Started</a>
+    {% endif %}
+
+  </nav>
+
+</header>
+
+<div class="header-divider"></div>
+
+
+</body>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scans | Remonixa</title>
+
+  <!-- KEEP ORIGINAL SCAN STYLES -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/scans.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+
+<body class="dashboard">
+
+<!-- ================= MAIN LAYOUT (SAME AS SUBSCRIPTION) ================= -->
+<div class="main">
+
+  <!-- ===== SIDEBAR ONLY (NO HEADER, NO BRAND) ===== -->
+  <aside class="sidebar">
+    <a href="/dashboard" class="menu">📊 Dashboard</a>
+    <a href="/scans" class="menu active">🧪 Scans</a>
+    <a href="/vulnerabilities" class="menu">🐞 Vulnerabilities</a>
+    <a href="/subscription" class="menu">💎 Subscription</a>
+    <a href="/reports" class="menu">📄 Reports</a>
+    <a href="/settings" class="menu">⚙️ Settings</a>
+  </aside>
+
+  <!-- ===== CONTENT (UNCHANGED) ===== -->
+  <main class="content">
+
+    <!-- ================= PAGE HEADER ================= -->
+    <header class="scan-header">
+      <div class="header-left">
+        <h1>🧪 Scans</h1>
+        <p class="header-sub">
+          Analyze targets and review security findings
+        </p>
+      </div>
+
+      <button class="new-scan-btn" onclick="openScanModal()">
+        + New Scan
+      </button>
+    </header>
+
+    <!-- ================= SCAN LIST ================= -->
+    {% if scans %}
+      {% for scan in scans %}
+
+      <section class="scan-overview">
+
+        <h2>Scan Overview</h2>
+
+        <div class="overview-grid">
+
+          <div class="overview-item">
+            <span class="label">Target</span>
+            <span class="value">{{ scan.target }}</span>
+          </div>
+
+          <div class="overview-item">
+            <span class="label">Scan Type</span>
+            <span class="value">XSS</span>
+          </div>
+
+          <div class="overview-item">
+            <span class="label">Status</span>
+            <span class="value status {{ scan.status|lower }}">
+              {{ scan.status }}
+            </span>
+          </div>
+
+          <div class="overview-item">
+            <span class="label">Risk Level</span>
+            <span class="value risk {{ scan.risk_level|lower }}">
+              {{ scan.risk_level }}
+            </span>
+          </div>
+
+        </div>
+
+        {% if scan.status == "Completed" %}
+        <a
+          href="/vulnerabilities?scan_id={{ scan.id }}"
+          class="corner-btn"
+        >
+          🔍 View Details
+        </a>
+        {% endif %}
+
+      </section>
+
+      {% endfor %}
+    {% else %}
+      <p style="padding:40px; text-align:center; opacity:0.6;">
+        No scans started yet
+      </p>
+    {% endif %}
+
+  </main>
+</div>
+
+<!-- ================= NEW SCAN MODAL (UNCHANGED) ================= -->
+<div id="scanModal" class="modal-overlay">
+  <div class="scan-modal">
+    <h2>Start New Scan</h2>
+    <p class="modal-sub">
+      Automated testing for potential XSS vulnerabilities
+    </p>
+
+    <form method="POST" action="/start-scan">
+      <label>Target URL</label>
+      <input
+        type="url"
+        name="target"
+        placeholder="https://example.com"
+        required
+      >
+
+      <label>Scan Type</label>
+      <select name="scan_type">
+        <option value="xss">XSS Scan</option>
+      </select>
+
+      <div class="modal-actions">
+        <button type="button" onclick="closeScanModal()">Cancel</button>
+        <button type="submit" class="primary">Start Scan</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  function openScanModal() {
+    document.getElementById("scanModal").style.display = "flex";
+  }
+  function closeScanModal() {
+    document.getElementById("scanModal").style.display = "none";
+  }
+</script>
+
+</body>
+</html>

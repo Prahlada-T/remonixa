@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | Remonixa</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+
+<body class="dashboard">
+
+<!-- ================= TOP BAR ================= -->
+<!-- TOP BAR -->
+<header class="top-bar">
+  <div class="brand">
+   <span class="brand-main">Remonixa</span>
+   <span class="brand-tech">Technology</span>
+  </div>
+
+  <div class="top-right">
+    <div class="live-users-badge">
+     <span class="pulse-dot"></span>
+    <span class="live-users">
+       🟢 Live Users: <strong>{{ live_users }}</strong>
+    </span>
+
+  </div>
+
+    <span class="user-name">👤 {{ session["username"] }}</span>
+  </div>
+</header>
+
+<!-- ================= MAIN ================= -->
+<div class="main">
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar">
+    <a href="/dashboard" class="menu active">📊 Dashboard</a>
+    <a href="/scans" class="menu">🧪 Scans</a>
+    <a href="/vulnerabilities" class="menu">🐞 Vulnerabilities</a>
+
+    <!-- 💎 PREMIUM / SUBSCRIPTION -->
+    <a href="/subscription" class="menu premium">
+      💎 Subscription
+      <span class="pro-badge"></span>
+    </a>
+
+    <a href="/reports" class="menu">📄 Reports</a>
+    <a href="/settings" class="menu">⚙️ Settings</a>
+  </aside>
+
+  <!-- ========== CONTENT ========== -->
+  <main class="content">
+
+    <!-- ========== METRICS ========== -->
+    <div class="metrics">
+
+      <div class="card">
+        <h4>Total Scans</h4>
+        <p>{{ total_scans }}</p>
+      </div>
+
+      <div class="card">
+        <h4>Vulnerabilities</h4>
+        <p>{{ vulns }}</p>
+      </div>
+
+      <div class="card">
+        <h4>Risk Level</h4>
+        <p class="risk {{ risk_level|lower }}">
+          {{ risk_level }}
+        </p>
+      </div>
+
+      <div class="card">
+        <h4>Last Scan</h4>
+        <p>{{ last_scan_time }}</p>
+      </div>
+
+    </div>
+
+    <!-- ========== SCAN HISTORY ========== -->
+    <div class="table-box">
+      <h2>Scan History</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Target</th>
+            <th>Vulnerabilities</th>
+            <th>Risk</th>
+            <th>Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for row in history %}
+          <tr>
+            <td>{{ row.target }}</td>
+            <td>{{ row.total_vulns }}</td>
+            <td class="risk {{ row.risk_level|lower }}">
+              {{ row.risk_level }}
+            </td>
+            <td>{{ row.created_at }}</td>
+            <td class="done">{{ row.status }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ========== SITE HEALTH SUMMARY ========== -->
+    <div class="table-box" style="margin-top:30px;">
+      <h2>Site Health Summary</h2>
+
+      <div style="display:flex; justify-content:center; padding:20px;">
+        <canvas id="healthChart" width="260" height="260"></canvas>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ================= CHART JS ================= -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const canvas = document.getElementById("healthChart");
+
+    if (!canvas) {
+      console.error("healthChart canvas not found");
+      return;
+    }
+
+    const ctx = canvas.getContext("2d");
+
+    // FORCE minimum visibility
+    const high = {{ high_count|default(0) }};
+    const medium = {{ medium_count|default(0) }};
+    const low = {{ low_count|default(0) }};
+
+    const dataValues =
+      high + medium + low === 0
+        ? [1, 1, 1]   // 👈 fallback so ring is visible
+        : [high, medium, low];
+
+    new Chart(ctx, {
+      type: "doughnut",
+      data: {
+        labels: ["High Risk", "Medium Risk", "Low Risk"],
+        datasets: [{
+          data: dataValues,
+          backgroundColor: ["#ff4d4d", "#ffaa00", "#00ff9d"],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        cutout: "70%",
+        plugins: {
+          legend: {
+            position: "bottom",
+            labels: { color: "#9aa4af" }
+          }
+        }
+      }
+    });
+  });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vulnerabilities | Remonixa</title>
+
+  <!-- KEEP ORIGINAL STYLE -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/scans.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+
+<body class="dashboard">
+
+<!-- ================= MAIN LAYOUT (SAME AS SUBSCRIPTION) ================= -->
+<div class="main">
+
+  <!-- ===== SIDEBAR ONLY ===== -->
+  <aside class="sidebar">
+    <a href="/dashboard" class="menu">📊 Dashboard</a>
+    <a href="/scans" class="menu">🧪 Scans</a>
+    <a href="/vulnerabilities" class="menu active">🐞 Vulnerabilities</a>
+    <a href="/subscription" class="menu">💎 Subscription</a>
+    <a href="/reports" class="menu">📄 Reports</a>
+    <a href="/settings" class="menu">⚙️ Settings</a>
+  </aside>
+
+  <!-- ===== CONTENT (UNCHANGED) ===== -->
+  <main class="content">
+
+    <!-- ================= VULNERABILITIES HEADER ================= -->
+    <header class="scan-header">
+      <div class="header-left">
+        <h1>🐞 Vulnerabilities</h1>
+        <p class="header-sub">
+          Confirmed security issues detected during scans
+        </p>
+      </div>
+    </header>
+
+    <!-- ================= VULNERABILITIES TABLE ================= -->
+    <section class="scan-findings">
+      <div class="findings-header">
+        <h2>Detected Issues</h2>
+        <span class="findings-note">
+          Only Medium & High severity vulnerabilities are stored
+        </span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Target URL</th>
+            <th>Parameter</th>
+            <th>Payload</th>
+            <th>Behavior</th>
+            <th>Risk</th>
+          </tr>
+        </thead>
+
+        <tbody>
+        {% if vulnerabilities %}
+          {% for v in vulnerabilities %}
+          <tr>
+            <td>{{ v.target_url }}</td>
+            <td>{{ v.parameter }}</td>
+            <td><code>{{ v.payload }}</code></td>
+            <td>{{ v.behavior }}</td>
+            <td>
+              <span class="risk {{ v.risk|lower }}">
+                {{ v.risk }}
+              </span>
+            </td>
+          </tr>
+          {% endfor %}
+        {% else %}
+          <tr>
+            <td colspan="5" style="text-align:center; opacity:0.6;">
+              No vulnerabilities found yet
+            </td>
+          </tr>
+        {% endif %}
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>

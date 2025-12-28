@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Security Settings</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+
+<body class="dashboard-layout">
+<main class="main-content">
+
+<h1>🔐 Change Password</h1>
+
+<form method="POST" class="settings-card" style="max-width:400px;">
+
+  <label>Current Password</label>
+  <input type="password" name="current" required>
+
+  <label>New Password</label>
+  <input type="password" name="new" required minlength="8">
+
+  <br>
+  <button class="upgrade-btn">Update Password</button>
+
+</form>
+
+</main>
+</body>
+</html>

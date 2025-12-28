@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Remonixa | AI Security Platform</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="saas">
+
+  <!-- ================= HEADER ================= -->
+  {% include "public_header.html" %}
+
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <h1>AI-Powered Penetration Testing</h1>
+
+    <p>
+      Automatically discover security vulnerabilities using
+      intelligent scanning and AI-driven analysis.
+    </p>
+
+    <div class="hero-cta">
+      <a href="/register" class="primary-btn">Create Free Account</a>
+    </div>
+  </section>
+
+  <!-- ================= TESTER SECTION ================= -->
+
+<section class="section-header">
+  <span class="green-line"></span>
+  <h2>Built for Security Testers</h2>
+  <p>Powerful tools designed for bug hunters, pentesters, and security researchers</p>
+</section>
+
+<section class="features">
+
+  <div class="feature-box">
+    <h3>Deep Vulnerability Scanning</h3>
+    <p>
+      Perform advanced scans to identify XSS, injection flaws,
+      and hidden attack vectors across applications.
+    </p>
+  </div>
+
+  <div class="feature-box">
+    <h3>Smart Payload Testing</h3>
+    <p>
+      Test multiple payload variations automatically and reduce
+      manual effort during vulnerability discovery.
+    </p>
+  </div>
+
+  <div class="feature-box">
+    <h3>Clear Proof-of-Concept</h3>
+    <p>
+      Generate clean, reproducible POCs that help validate findings
+      and simplify reporting.
+    </p>
+  </div>
+
+</section>
+
+  <!-- ================= VALUE TITLE ================= -->
+  <section class="section-header" id="features">
+    <span class="green-line"></span>
+    <h2>How Remonixa Protects Your Website</h2>
+    <p>
+      Simple security checks anyone can use — no technical knowledge required
+    </p>
+  </section>
+
+  <!-- ================= FEATURES ================= -->
+  <section class="features">
+
+    <div class="feature-box">
+      <h3>Automated Scanning</h3>
+      <p>
+        We automatically scan your website and find security weaknesses
+        without any manual work from you.
+      </p>
+    </div>
+
+    <div class="feature-box">
+      <h3>Smart Detection</h3>
+      <p>
+        Our intelligent system avoids false alarms and highlights
+        only real security risks that matter.
+      </p>
+    </div>
+
+    <div class="feature-box">
+      <h3>Easy Reports</h3>
+      <p>
+        Get simple, clear reports that anyone can understand —
+        perfect for developers and business owners.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- ================= PRICING TITLE ================= -->
+  <section class="section-header" id="pricing">
+    <span class="green-line"></span>
+    <h2>Choose Your Plan</h2>
+    <p>Start free, upgrade only when you need more power</p>
+  </section>
+
+  <!-- ================= PRICING ================= -->
+  <section class="plans">
+
+    <!-- FREE PLAN -->
+    <div class="plan-card">
+      <h3>Free Plan</h3>
+      <ul>
+        <li>3 security scans</li>
+        <li>Basic vulnerability detection</li>
+        <li>Limited features</li>
+      </ul>
+
+      <a href="/register" class="primary-btn">Get Started Free</a>
+    </div>
+
+    <!-- PREMIUM PLAN -->
+    <div class="plan-card premium">
+      <h3>Premium Plan - Tester</h3>
+      <ul>
+        <li>Unlimited scans</li>
+        <li>Advanced vulnerability detection</li>
+        <li>AI analysis & detailed reports</li>
+      </ul>
+
+      <a href="/register" class="premium-btn">Upgrade to Premium</a>
+    </div>
+
+    <!-- BUSINESS PLAN -->
+<div class="plan-card premium">
+  <h3>Premium Plan – Business</h3>
+  <ul>
+    <li>Unlimited security scans</li>
+    <li>Enterprise-grade vulnerability detection</li>
+    <li>Compliance-ready security reports</li>
+    <li>Client & team-friendly dashboards</li>
+  </ul>
+
+  <a href="/register" class="premium-btn">Upgrade to Premium</a>
+ </div>
+
+</section>
+
+<!-- ================= OUR VISION ================= -->
+<section class="vision-section">
+
+  <h2 class="section-title">Our Vision</h2>
+  <p class="section-subtitle">
+    To make web security simple, powerful, and accessible for everyone —
+    from individual testers to growing businesses and enterprises.
+  </p>
+
+  <div class="vision-flow">
+
+    <div class="vision-circle mission">
+      <div class="icon">💡</div>
+      <h3>Security for Everyone</h3>
+      <p>
+        We believe security should not be complex or expensive.
+        Remonixa empowers anyone to protect their applications with ease.
+      </p>
+    </div>
+
+    <div class="vision-circle vision">
+      <div class="icon">🎯</div>
+      <h3>Smarter Testing</h3>
+      <p>
+        By combining automation and AI, we reduce noise and focus only
+        on real vulnerabilities that truly matter.
+      </p>
+    </div>
+
+    <div class="vision-circle values">
+      <div class="icon">🚀</div>
+      <h3>Future-Ready Protection</h3>
+      <p>
+        As threats evolve, Remonixa evolves with them — delivering
+        continuous innovation in vulnerability detection.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact-section">
+
+  <div class="section-header">
+    <span class="green-line"></span>
+    <h2>Contact Us</h2>
+    <p>Have a question? Send us a message</p>
+  </div>
+
+  <div class="contact-box">
+    <form method="POST" action="/contact">
+
+      <input type="text" name="name" placeholder="Your Name" required>
+
+      <input type="email" name="email" placeholder="Your Email" required>
+
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+
+      <button type="submit" class="primary-btn">
+        Send Message
+      </button>
+
+    </form>
+  </div>
+
+</section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <p>© 2025 Remonixa Technology. All rights reserved.</p>
+  </footer>
+
+
+</body>
+</html>

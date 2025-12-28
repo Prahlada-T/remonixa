@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Subscription | Remonixa</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+
+<body class="dashboard">
+
+<!-- TOP BAR -->
+<div class="main">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <a href="/dashboard" class="menu">📊 Dashboard</a>
+    <a href="/scans" class="menu">🧪 Scans</a>
+    <a href="/vulnerabilities" class="menu">🐞 Vulnerabilities</a>
+    <a href="/subscription" class="menu premium active">💎 Subscription</a>
+    <a href="/reports" class="menu">📄 Reports</a>
+    <a href="/settings" class="menu">⚙️ Settings</a>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <div class="sub-header">
+      <h1>🔒 Choose Your Plan</h1>
+      <p>Upgrade to unlock advanced security scanning and professional reports</p>
+    </div>
+
+    <div class="plans-grid">
+
+      <!-- ================= TESTER PREMIUM ================= -->
+      <div class="plan-card tester-plan">
+        <h3 class="plan-title tester">Tester Premium</h3>
+        <div class="plan-price">₹1,499 <span>/ month</span></div>
+
+        <ul class="plan-list">
+          <li>Unlimited XSS scans</li>
+          <li>Faster scan engine</li>
+          <li>Actionable vulnerability insights</li>
+          <li>Risk severity classification</li>
+          <li>90 days scan history</li>
+          <li>Professional security reports (PDF)</li>
+        </ul>
+
+        <a href="/upgrade-tester" class="btn tester-active">
+         🚀Upgrade Now
+        </a>
+
+      </div>
+
+      <!-- ================= BUSINESS PLAN ================= -->
+      <div class="plan-card business-plan">
+        <h3 class="plan-title business">Business Plan</h3>
+        <div class="plan-price gold">₹12,999 <span>/ month</span></div>
+
+        <ul class="plan-list">
+          <li>Everything in Tester Premium</li>
+          <li>Multi-domain & asset scanning</li>
+          <li>Team access (up to 5 users)</li>
+          <li>Scheduled automated scans</li>
+          <li>Executive security dashboard</li>
+          <li>Compliance-ready reports</li>
+          <li>Real-time security alerts</li>
+        </ul>
+
+        <button class="btn coming" disabled>
+          Contact Sales (Coming Soon)
+        </button>
+
+        <div class="enterprise-note">
+          Enterprise onboarding starts soon
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
